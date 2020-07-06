@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"></head>
+<body>
+
+    <div class="container">
+        <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+        <h1>사용자관리채널</h1>
+        <p><span>사용자 관리 채널입니다.</span></p>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>수정</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member : ${users}">
+                    <td th:text="${member.id}"></td>
+                    <td th:text="${member.email}"></td>
+                    <td th:text="${member.name}"></td>
+                    <td>
+                        <a href="#" th:href="@{/users/{id}/update (id=${member.id})}" class="btn btn-primary" roles="button">수정</a>
+                    </td>
+                    <td>
+                        <a href="#" th:href="@{/users/{id}/delete (id=${member.id})}" onclick="return confirm('정말 삭제하시겠습니까??');" class="btn btn-primary" roles="button">삭제</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+</body>
+</html>

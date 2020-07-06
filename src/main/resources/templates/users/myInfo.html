@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+    <h1>내 정보</h1>
+    <form th:object="${form}" th:action="@{/users/info/{id}/update (id=${form.id})}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+            <label th:for="email">이메일</label>
+            <input type="text" th:field="*{email}" class="form-control" readonly/>
+        </div>
+        <div class="form-group">
+            <label th:for="password">비밀번호</label>
+            <input type="text" th:field="*{password}" class="form-control" required autofocus/>
+        </div>
+        <div class="form-group">
+            <label th:for="name">이름</label>
+            <input type="text" th:field="*{name}" class="form-control" required autofocus/>
+        </div>
+        <div class="form-group">
+            <label th:for="roleName">권한</label>
+            <select class="form-control" name="roleName" id="roleName">
+                <option th:each="role: ${roleList}"
+                        th:value="${role.roleName}"
+                        th:text="${role.roleName}">
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">수정</button>
+        <a th:href="@{/}" class="btn btn-primary">뒤로가기</a>
+    </form>
+</div>
+
+</body>
+</html>
