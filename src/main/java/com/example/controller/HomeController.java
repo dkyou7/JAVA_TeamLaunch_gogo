@@ -10,7 +10,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(){
-        log.info("==== 루트 페이지 입니다 ====");
         return "home";
     }
 }

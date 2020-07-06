@@ -73,6 +73,7 @@
             <version>1.7.26</version>
         </dependency>
 
+
         <!-- 이미지 조정 -->
         <dependency>
             <groupId>org.imgscalr</groupId>
