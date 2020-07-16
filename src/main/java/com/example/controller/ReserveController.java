@@ -2,6 +2,8 @@ package com.example.controller;
 
 import com.example.domain.company.Company;
 import com.example.domain.company.CompanyDto;
+import com.example.domain.reserve.Reserve;
+import com.example.domain.reserve.ReserveDto;
 import com.example.domain.store.Store;
 import com.example.domain.store.StoreDto;
 import com.example.service.CompanyService;
@@ -48,11 +50,12 @@ public class ReserveController {
         return "redirect:/";
     }
 
-//    @GetMapping(value = "/reserve/list")
-//    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model){
-//        List<Order> orders = orderService.findOrders(orderSearch);
-//        model.addAttribute("orders",orders);
-//
-//        return "order/orderList";
-//    }
+    @GetMapping(value = "/reserve/list")
+    public String orderList(Model model){
+        List<Reserve> reserves = reserveService.findAll();
+        List<ReserveDto> reserveDtos = reserves.stream().map(ReserveDto::new).collect(Collectors.toList());
+        model.addAttribute("reserves",reserveDtos);
+
+        return "reserve/reserveList";
+    }
 }
