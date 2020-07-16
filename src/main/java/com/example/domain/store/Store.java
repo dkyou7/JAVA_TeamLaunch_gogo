@@ -1,9 +1,6 @@
-package com.example.domain;
+package com.example.domain.store;
 
-import lombok.Builder;
-import lombok.Generated;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,4 +19,6 @@ public class Store {
     private String storeName;
     private String address;
     private String phoneNum;
+
+
 }
