@@ -12,18 +12,22 @@ import java.util.List;
 @Service
 public class StoreService {
 
-
     @Autowired
     private StoreRepository storeRepository;
 
     @Transactional
     public Boolean save(Store s){
-        List<Store> stores = storeRepository.findByStoreName(s.getStoreName());
+        List<Store> stores = storeRepository.findByName(s.getName());
         if (stores.isEmpty()){
             storeRepository.save(s);
             return true;
         }else{
             return false;
         }
+    }
+
+    @Transactional
+    public List<Store> findAll() {
+        return storeRepository.findAll();
     }
 }

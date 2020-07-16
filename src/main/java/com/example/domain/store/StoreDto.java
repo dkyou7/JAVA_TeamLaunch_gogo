@@ -1,15 +1,21 @@
 package com.example.domain.store;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class StoreDto {
 
-    private String storeName;
+    private Long id;
+    private String name;
     private String address;
     private String phoneNum;
+
+    public StoreDto(Store store) {
+        id = store.getId();
+        name = store.getName();
+        address = store.getAddress();
+        phoneNum = store.getPhoneNum();
+    }
 }

@@ -6,7 +6,16 @@
     <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
     <div class="jumbotron">
         <p class="lead">
-            <a class="btn btn-lg btn-info" th:href="@{/store/new}">팀점등록</a>
+            <a class="btn btn-lg btn-info" th:href="@{/store/new}">가게등록</a>
+            <a class="btn btn-lg btn-info" th:href="@{/store/list}">가게목록</a>
+        </p>
+        <p class="lead">
+            <a class="btn btn-lg btn-secondary" th:href="@{/user/new}">회식장소등록</a>
+            <a class="btn btn-lg btn-secondary" th:href="@{/user/list}">회식장소목록</a>
+        </p>
+        <p class="lead">
+            <a class="btn btn-lg btn-dark" th:href="@{/user/new}">유저등록</a>
+            <a class="btn btn-lg btn-dark" th:href="@{/user/list}">유저목록</a>
         </p>
     </div>
     <div th:replace="fragments/footer :: footer"></div>

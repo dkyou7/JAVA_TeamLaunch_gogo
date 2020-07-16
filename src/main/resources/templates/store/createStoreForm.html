@@ -12,7 +12,7 @@
         <form action="/store/new" th:object="${storeForm}" method="post">
             <div class="form-group">
                 <label th:for="name">가게이름</label>
-                <input type="text" th:text="*{storeName}" th:field="*{storeName}" placeholder="가게이름을 입력하세요." class="form-control">
+                <input type="text" th:text="*{name}" th:field="*{name}" placeholder="가게이름을 입력하세요." class="form-control">
             </div>
             <div class="form-group">
                 <label th:for="address">주소</label>

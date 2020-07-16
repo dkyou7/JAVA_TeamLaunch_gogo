@@ -11,12 +11,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
 public class StoreController {
 
     private final StoreService storeService;
+
+    @GetMapping("/store/list")
+    public String dispStoreList(Model model){
+        List<Store> storeList = storeService.findAll();
+        List<StoreDto> collect = storeList.stream().map(StoreDto::new).collect(Collectors.toList());
+        model.addAttribute("stores",collect);
+        return "store/storeList";
+    }
 
     @GetMapping("/store/new")
     public String createStoreForm(Model model){
@@ -30,7 +40,7 @@ public class StoreController {
         if (result.hasErrors()) {
             return "store/createStoreForm";
         }
-        Store store = Store.builder().storeName(storeDto.getStoreName())
+        Store store = Store.builder().storeName(storeDto.getName())
                 .address(storeDto.getAddress())
                 .phoneNum(storeDto.getPhoneNum())
                 .build();
