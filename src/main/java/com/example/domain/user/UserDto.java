@@ -1,9 +1,8 @@
 package com.example.domain.user;
 
-import lombok.AllArgsConstructor;
+import com.example.domain.company.Company;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -13,10 +12,12 @@ public class UserDto {
     private String nickname;
     private String email;
     private String password;
+    private Company company;
 
     public UserDto(User user) {
         id = user.getId();
         nickname = user.getNickname();
         email = user.getEmail();
+        company = user.getCompany();
     }
 }
