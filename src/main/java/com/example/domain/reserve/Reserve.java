@@ -28,12 +28,13 @@ public class Reserve {
     private int count;          // 방문 횟수
     private int reserved_count; // 한번에 몇명 방문했는지.
 
-    public static Reserve createReserve(Company company,String reserver, int count){
-        Reserve reserve = new Reserve();
-        reserve.setCompany(company);
-        reserve.setReserver(reserver);
-        reserve.setCount(count);
-        return reserve;
+    public static Reserve createStore(Store store,String reserver, int count){
+        Reserve result = new Reserve();
+        result.setStore(store);
+        result.setCount(count);
+        result.setReserver(reserver);
+
+        return result;
     }
 
 }
