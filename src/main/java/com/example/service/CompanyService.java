@@ -33,4 +33,8 @@ public class CompanyService {
             return false;
         }
     }
+
+    public Company findById(Long companyId) {
+        return companyRepository.findById(companyId).orElseThrow(EntityNotFoundException::new);
+    }
 }
