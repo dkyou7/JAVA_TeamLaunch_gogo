@@ -12,24 +12,22 @@
         <form action="/store/new" th:object="${storeForm}" method="post">
             <div class="form-group">
                 <label th:for="name">가게이름</label>
-                <input type="text" th:text="*{name}" th:field="*{name}" placeholder="가게이름을 입력하세요." class="form-control">
+                <input type="text" th:field="*{name}" placeholder="가게이름을 입력하세요." class="form-control" disabled>
             </div>
             <div class="form-group">
                 <label th:for="address">주소</label>
-                <input class="form-control" placeholder="주소 입력하세요." th:field="*{address}" type="text">
+                <input class="form-control" placeholder="주소 입력하세요." th:field="*{address}" type="text" disabled>
             </div>
             <div class="form-group">
                 <label th:for="phoneNum">연락가능한번호</label>
-                <input class="form-control" placeholder="일지를 입력하세요." th:field="*{phoneNum}"/>
+                <input class="form-control" placeholder="일지를 입력하세요." th:field="*{phoneNum}" disabled/>
             </div>
             <div class="form-group">
-                <label th:for="type">종류</label>
-                <select name="typeId" id="type" class="form-control">
-                    <option value="">선택</option>
-                    <option th:each="type : ${T(com.example.domain.store.StoreType).values()}"
-                            th:text="${type}">
-                    </option>
-                </select>
+                <label th:for="storeType">종류</label>
+                <input class="form-control" placeholder="일지를 입력하세요." th:field="*{storeType}" disabled/>
+            </div>
+            <div class="form-group">
+                <label th:for="phoneNum">지도</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

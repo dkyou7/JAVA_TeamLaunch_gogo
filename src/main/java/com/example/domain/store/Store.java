@@ -2,10 +2,7 @@ package com.example.domain.store;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -20,10 +17,15 @@ public class Store {
     private String address;
     private String phoneNum;
 
+    @Enumerated(EnumType.STRING)
+    private StoreType storeType;
+
     @Builder
-    public Store(String storeName, String address, String phoneNum) {
-        this.name = storeName;
+    public Store(Long id, String name, String address, String phoneNum, StoreType storeType) {
+        this.id = id;
+        this.name = name;
         this.address = address;
         this.phoneNum = phoneNum;
+        this.storeType = storeType;
     }
 }

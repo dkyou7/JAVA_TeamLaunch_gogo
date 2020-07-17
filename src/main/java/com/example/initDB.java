@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.domain.company.Company;
 import com.example.domain.store.Store;
+import com.example.domain.store.StoreType;
 import com.example.domain.user.User;
 import com.example.repository.CompanyRepository;
 import com.example.service.CompanyService;
@@ -51,10 +52,10 @@ public class initDB {
             member.setCompany(company);
         }
         public void dbinit3() {
-            Store store = Store.builder().storeName("다연").address("삼평동 13-1번지").phoneNum("010-6440-2371").build();
+            Store store = Store.builder().name("다연").address("삼평동 13-1번지").phoneNum("010-6440-2371").storeType(StoreType.한식).build();
             em.persist(store);
 
-            Store store2 = Store.builder().storeName("베이징스토리").address("삼환하이펙스 13-1번지").phoneNum("010-6440-2371").build();
+            Store store2 = Store.builder().name("베이징스토리").address("삼환하이펙스 13-1번지").phoneNum("010-6440-2371").storeType(StoreType.중식).build();
             em.persist(store2);
         }
 

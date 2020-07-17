@@ -35,9 +35,8 @@ public class Company {
     }
 
     public static Company createCompany(Company com ,Reserve reserve) {
-        Company company = com;
-        company.addReserve(reserve);
-        return company;
+        com.addReserve(reserve);
+        return com;
     }
 
     private void addReserve(Reserve reserve) {

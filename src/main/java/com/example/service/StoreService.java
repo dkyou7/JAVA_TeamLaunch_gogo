@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StoreService {
@@ -29,5 +30,10 @@ public class StoreService {
     @Transactional
     public List<Store> findAll() {
         return storeRepository.findAll();
+    }
+
+    public Store findById(Long storeId) {
+        Optional<Store> findStore = storeRepository.findById(storeId);
+        return findStore.orElseThrow(EntityNotFoundException::new);
     }
 }
