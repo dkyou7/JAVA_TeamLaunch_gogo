@@ -57,6 +57,7 @@ public class StoreController {
                 .address(storeDto.getAddress())
                 .phoneNum(storeDto.getPhoneNum())
                 .storeType(StoreType.valueOf(storeType))
+                .icecreamCount(0)
                 .build();
 
         if (storeService.save(store)) {

@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header" />
+<head th:replace="fragments/header :: header"></head>
 <body>
 <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
     <form role="form" action="/reserve" method="post">
         <div class="form-group">
             <label for="company">회사명</label>
-            <select name="companyId" id="company" class="form-control">
+            <select name="companyId" id="company" class="form-control" autofocus>
                 <option value="">회사선택</option>
                 <option th:each="company : ${companies}"
                         th:value="${company.id}"
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="store">가게명</label>
-            <select name="storeId" id="store" class="form-control">
+            <select name="storeId" id="store" class="form-control" autofocus>
                 <option value="">회식장소선택</option>
                 <option th:each="store : ${stores}"
                         th:value="${store.id}"
@@ -26,17 +26,17 @@
         <div class="form-group">
             <label for="reserver">예약자</label>
             <input type="text" name="reserver" class="form-control" id="reserver"
-                   placeholder="예약자는 어떤 이름으로 해드릴까요???">
+                   placeholder="예약자는 어떤 이름으로 해드릴까요???" autofocus>
         </div>
         <div class="form-group">
             <label for="count">예약인원</label>
             <input type="number" name="count" class="form-control" id="count"
-                   placeholder="몇 명이 함께하시나요?">
+                   placeholder="몇 명이 함께하시나요?" autofocus>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <br/>
-    <div th:replace="fragments/footer :: footer" />
+    <div th:replace="fragments/footer :: footer"></div>
 </div> <!-- /container -->
 </body>
 </html>

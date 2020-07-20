@@ -12,6 +12,7 @@ public class StoreDto {
     private String address;
     private String phoneNum;
     private StoreType storeType;
+    private int icecreamCount;
 
     public StoreDto(Store store) {
         id = store.getId();
@@ -19,5 +20,6 @@ public class StoreDto {
         address = store.getAddress();
         phoneNum = store.getPhoneNum();
         storeType = store.getStoreType();
+        icecreamCount = store.getIcecreamCount();
     }
 }

@@ -32,9 +32,9 @@ public class ReserveController {
     public String createReserve(Model model){
         List<Company> companies = companyService.findAll();
         List<Store> stores = storeService.findAll();
-
-        List<CompanyDto> companyDtos = companies.stream().map(CompanyDto::new).collect(Collectors.toList());
         List<StoreDto> storeDtos = stores.stream().map(StoreDto::new).collect(Collectors.toList());
+        List<CompanyDto> companyDtos = companies.stream().map(CompanyDto::new).collect(Collectors.toList());
+
 
         model.addAttribute("companies",companyDtos);
         model.addAttribute("stores",storeDtos);

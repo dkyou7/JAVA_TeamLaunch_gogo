@@ -20,12 +20,15 @@ public class Store {
     @Enumerated(EnumType.STRING)
     private StoreType storeType;
 
+    private int icecreamCount;
+
     @Builder
-    public Store(Long id, String name, String address, String phoneNum, StoreType storeType) {
+    public Store(Long id, String name, String address, String phoneNum, StoreType storeType,int icecreamCount) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phoneNum = phoneNum;
         this.storeType = storeType;
+        this.icecreamCount = icecreamCount;
     }
 }

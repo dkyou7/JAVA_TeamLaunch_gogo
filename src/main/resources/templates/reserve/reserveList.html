@@ -28,8 +28,6 @@
                 <tr>
                     <th>#</th>
                     <th>가게명</th>
-                    <th>가게주소</th>
-                    <th>가게번호</th>
                     <th>예약자명</th>
                     <th>예약인원</th>
                 </tr>
@@ -37,9 +35,7 @@
             <tbody>
             <tr th:each="reserve : ${reserves}">
                 <td th:text="${reserve.id}"></td>
-                <td th:text="${reserve.name}"></td>
-                <td th:text="${reserve.address}"></td>
-                <td th:text="${reserve.phoneNum}"></td>
+                <td><a th:href="@{'/store/' + ${reserve.storeId}}" th:text="${reserve.name}"></a></td>
                 <td th:text="${reserve.reserver}"></td>
                 <td th:text="${reserve.count}"></td>
             </tr>

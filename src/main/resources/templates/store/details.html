@@ -27,6 +27,11 @@
                 <input class="form-control" placeholder="일지를 입력하세요." th:field="*{storeType}" disabled/>
             </div>
             <div class="form-group">
+                <label th:for="storeType">아이스크림!</label>
+                <img id="myImage" onclick="changeImage()" th:src="@{/images/icecream_off.png}" style="width:100px; height:100px;"/>
+                <input class="form-control" placeholder="일지를 입력하세요." th:field="*{icecreamCount}" disabled/>
+            </div>
+            <div class="form-group">
                 <label th:for="phoneNum">지도</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -34,5 +39,15 @@
         <br/>
         <div th:replace="fragments/footer :: footer"></div>
     </div>
+    <script>
+        function changeImage() {
+          var image = document.getElementById('myImage');
+          if (image.src.match("/images/icecream_off.png")) {
+            image.src = "/images/icecream_on.png";
+          } else {
+            image.src = "/images/icecream_off.png";
+          }
+        }
+    </script>
 </body>
 </html>
