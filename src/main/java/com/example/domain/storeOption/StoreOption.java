@@ -27,4 +27,10 @@ public class StoreOption {
     private Store store;
 
 
+    public static StoreOption createStoreOption(Store store, Option findOption) {
+        StoreOption result = new StoreOption();
+        result.setStore(store);
+        result.setOption(findOption);
+        return result;
+    }
 }

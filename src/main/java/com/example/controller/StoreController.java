@@ -73,9 +73,6 @@ public class StoreController {
         }
         List<String> checkedItems = foo.getCheckedItems();
 
-        for(String checked : checkedItems){
-            System.out.println("checked = " + checked);
-        }
         Store store = Store.builder()
                 .name(storeDto.getName())
                 .address(storeDto.getAddress())
@@ -83,13 +80,9 @@ public class StoreController {
                 .storeType(StoreType.valueOf(storeType))
                 .icecreamCount(0)
                 .build();
-
-        if (storeService.save(store)) {
-            // 등록에 성공했을 경우
+        if (storeService.save(store,checkedItems)) {
             return "redirect:/";
-        } else {
-            // 등록 실패했을 경우
-            return "store/createStoreForm";
         }
+        return "store/createStoreForm";
     }
 }

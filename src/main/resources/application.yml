@@ -20,6 +20,3 @@ spring:
       hibernate:
         show_sql: false
         # format_sql: true
-logging:
-  file: ./log/local
-#spring.profiles.active=pointcut

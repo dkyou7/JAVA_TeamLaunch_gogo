@@ -10,4 +10,6 @@ public interface OptionRepository extends JpaRepository<Option,Long> {
 
     @Query("select o.name from Option o")
     List<String> getOptionName();
+
+    Option findByName(String name);
 }

@@ -19,9 +19,6 @@ public class Option {
 
     private String name;
 
-    @OneToMany(mappedBy = "option",cascade = CascadeType.ALL)
-    private List<StoreOption> storeOptions;
-
     @Builder
     public Option(Long id, String name) {
         this.id = id;

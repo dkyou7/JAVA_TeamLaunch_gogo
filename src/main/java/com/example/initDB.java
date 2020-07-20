@@ -66,6 +66,9 @@ public class initDB {
 
             Option option2 = Option.builder().name("외부음식반입가능").build();
             em.persist(option2);
+
+            Option option3 = Option.builder().name("10인실이상의 룸 있음").build();
+            em.persist(option3);
         }
 
         private Company findCompany(String ktnet) {
@@ -81,8 +84,6 @@ public class initDB {
             User user = User.builder().nickname(nickname).email(email).password(password).build();
             return user;
         }
-
-
     }
 }
 
