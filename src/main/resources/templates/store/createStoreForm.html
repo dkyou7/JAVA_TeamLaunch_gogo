@@ -31,6 +31,13 @@
                     </option>
                 </select>
             </div>
+            <div class="form-group">
+                <label th:for="item">옵션</label>
+                <div th:each="item : ${allItems}">
+                    <input type="checkbox" th:field="${foo.checkedItems}" th:value="${item}" />
+                    <label th:text="${item}">example</label>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <br/>

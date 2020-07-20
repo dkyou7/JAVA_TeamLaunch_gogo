@@ -1,7 +1,11 @@
 package com.example.domain.store;
 
+import com.example.domain.option.Option;
+import com.example.domain.storeOption.StoreOption;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor

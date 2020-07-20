@@ -1,8 +1,12 @@
 package com.example.domain.user;
 
 import com.example.domain.company.Company;
+import com.example.domain.option.OptionType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.swing.text.html.Option;
+import java.util.List;
 
 @Data
 @NoArgsConstructor

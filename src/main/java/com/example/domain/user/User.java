@@ -1,12 +1,14 @@
 package com.example.domain.user;
 
 import com.example.domain.company.Company;
+import com.example.domain.option.OptionType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,7 +28,6 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
-
 
     public void setCompany(Company company) {
         this.company = company;

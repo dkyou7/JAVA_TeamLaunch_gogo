@@ -36,4 +36,9 @@ public class StoreService {
         Optional<Store> findStore = storeRepository.findById(storeId);
         return findStore.orElseThrow(EntityNotFoundException::new);
     }
+
+    @Transactional
+    public List<String> findAllOptionName() {
+        return storeRepository.findAllOptionName();
+    }
 }

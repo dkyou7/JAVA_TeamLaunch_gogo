@@ -1,8 +1,13 @@
 package com.example.domain.store;
 
+import com.example.domain.option.Option;
+import com.example.domain.reserve.Reserve;
+import com.example.domain.storeOption.StoreOption;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -11,6 +16,7 @@ import javax.persistence.*;
 public class Store {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "store_id")
     private Long id;
 
     private String name;
@@ -22,6 +28,9 @@ public class Store {
 
     private int icecreamCount;
 
+    @OneToMany(mappedBy = "store",cascade = CascadeType.ALL)
+    private List<StoreOption> storeOptions;
+
     @Builder
     public Store(Long id, String name, String address, String phoneNum, StoreType storeType,int icecreamCount) {
         this.id = id;
@@ -31,4 +40,5 @@ public class Store {
         this.storeType = storeType;
         this.icecreamCount = icecreamCount;
     }
+
 }
