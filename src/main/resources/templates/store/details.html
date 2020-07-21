@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
-        <form action="/store/new" th:object="${storeForm}" method="post">
+        <form th:action="@{/store/list}" th:object="${storeForm}" method="post">
             <div class="form-group">
                 <label th:for="name">가게이름</label>
                 <input type="text" th:field="*{name}" placeholder="가게이름을 입력하세요." class="form-control" disabled>
@@ -40,8 +40,9 @@
             </div>
             <div class="form-group">
                 <label th:for="phoneNum">지도</label>
+                <div id="map" style="width:500px;height:400px;"></div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/store/list" type="submit" class="btn btn-primary">확인</a>
         </form>
         <br/>
         <div th:replace="fragments/footer :: footer"></div>
@@ -56,5 +57,15 @@
           }
         }
     </script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bce28a2db13124fbab13e27fc3bce212&libraries=services"></script>
+    <script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	</script>
 </body>
 </html>
