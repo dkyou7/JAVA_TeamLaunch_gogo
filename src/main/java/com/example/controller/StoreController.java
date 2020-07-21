@@ -36,6 +36,21 @@ public class StoreController {
     public String dispStoreDetail(@PathVariable("id") Long storeId, Model model){
         Store findStore = storeService.findById(storeId);
         model.addAttribute("storeForm",new StoreDto(findStore));
+
+        model.addAttribute("allItems", optionService.findAllName());
+
+        Foo foo = new Foo();
+        List<String> checkedItems = new ArrayList<>();
+        List<StoreOption> storeOptionNames = storeOptionService.findStoreOptionNames(findStore.getId());
+        for(StoreOption storeOption : storeOptionNames){
+            String name = storeOption.getOption().getName();
+            checkedItems.add(name);
+        }
+
+        // value1 will be checked by default.
+        foo.setCheckedItems(checkedItems);
+        model.addAttribute("foo", foo);
+
         return "store/details";
     }
 
