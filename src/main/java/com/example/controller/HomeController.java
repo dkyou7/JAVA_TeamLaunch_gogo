@@ -1,13 +1,25 @@
 package com.example.controller;
 
+import java.io.IOException;
+
 import com.example.login.kakao.KakaoLogin;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
@@ -23,7 +35,7 @@ public class HomeController {
 
     private KakaoLogin kakao_restapi = new KakaoLogin();
 
-    @RequestMapping(value = "/oauth", produces = "application/json")
+    @RequestMapping(value = "/oauth2", produces = "application/json")
     public String kakaoLogin(@RequestParam("code") String code, Model model, HttpSession session) {
         System.out.println("로그인 할때 임시 코드값");
         //카카오 홈페이지에서 받은 결과 코드
@@ -41,7 +53,7 @@ public class HomeController {
         //세션에 담아준다.
         session.setAttribute("token", token);
 
-        return "logininfo";
+        return "redirect:/";
     }
 
 }

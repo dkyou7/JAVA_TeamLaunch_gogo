@@ -5,4 +5,13 @@
         <li><a th:href="@{/}">Home</a></li>
     </ul>
     <a th:href="@{/}"><h3 class="text-muted">팀점긔긔</h3></a>
+    <div class="container">
+        <div class="row">
+            <div class="col"><a class="btn btn-lg btn-secondary" th:href="@{/kakao/oauth}">카카오로 로그인하기</a></div>
+            <div class="col"><img th:src="${thumbnailImage}"><p class="text-right" th:if="${username != null}" th:text="${username} + '님, 안녕하세요!'"></p></div>
+        </div>
+    </div>
+
+
+
 </div>
