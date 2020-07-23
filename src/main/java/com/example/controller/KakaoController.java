@@ -32,6 +32,21 @@ public class KakaoController {
         return "redirect:" + url.toString();
     }
 
+    @GetMapping(value="/logout")
+    public String kakaoLogout(){
+        StringBuffer url = new StringBuffer();
+        url.append("https://kauth.kakao.com/oauth/logout?");
+        url.append("client_id=" + "ab16ebf40f5d16e2f8d41a3863e87fb1");
+        url.append("&logout_redirect_uri=http://localhost:8080/kakao/logout_callback");
+
+        return "redirect:" + url.toString();
+    }
+
+    @RequestMapping(value="/logout_callback",produces="application/json",method= {RequestMethod.GET, RequestMethod.POST})
+    public String kakaoLogout_callback() {
+        return "home";
+    }
+
     @RequestMapping(value="/callback",produces="application/json",method= {RequestMethod.GET, RequestMethod.POST})
     public String kakaoLogin(@RequestParam("code")String code, RedirectAttributes ra, HttpSession session, HttpServletResponse response, Model model)throws IOException {
 
