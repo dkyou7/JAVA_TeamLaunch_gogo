@@ -8,12 +8,18 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
+#  datasource:
+#    url: jdbc:mariadb://rds-mariadb.cxnmbxjlwlw0.ap-northeast-2.rds.amazonaws.com:3306/test?useUnicode=yes&characterEncoding=UTF-8
+#    username: root
+#    password: Test!234
+#    driver-class-name: org.mariadb.jdbc.Driver
   devtools:
     livereload:
       enabled: true   # 이 옵션은 정적 파일 변동 시 자동 반영될 수 있도록 돕는다.
     restart:
       enabled: true
   jpa:
+#    database-platform: org.hibernate.dialect.MariaDBDialect
     hibernate:
       ddl-auto: create  # 이 옵션은 애플리케이션 실행 시점에 테이블을 drop 하고, 다시 생성한다
     properties:
